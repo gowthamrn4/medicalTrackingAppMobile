@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+      <ion-buttons class="backBtn" (click)="goToBack()" left>
+          <button ion-button icon-only class="backBtn">
+            <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+        </button>
+      </ion-buttons>
+     <ion-title>Add FeedBack</ion-title>
+  </ion-navbar>
+ </ion-header>
+
+<ion-content padding>
+  <form name="ruleaddform" id="ruleaddform" #ruleaddform="ngForm" novalidate>
+      <ion-row>
+          <ion-col col-12>
+              <ion-item>
+                  <ion-label floating >Rep Name</ion-label>
+                  <ion-input type="text"  id="nameRep" required name="nameRep" #nameRep="ngModel" ngModel minlength="3" maxlength="10"></ion-input>
+              </ion-item>
+          </ion-col>
+          <ion-col col-12>
+              <ion-item>
+                  <ion-label  floating>Customer Name</ion-label>
+                  <ion-input type="text"   id="customerName" name="customerName" #customerName="ngModel" ngModel></ion-input>
+              </ion-item>
+
+          </ion-col>
+          <!-- <ion-col col-12>
+              <ion-item>
+                  <ion-label color="primary" floating> Select Condition</ion-label>
+                  <ion-select [(ngModel)]="model.condition" #condition="ngModel" id="condition" name="condition" (ionChange)="callCondition(condition.value)" required>
+                      <ion-option selected value="<">
+                          <(lower than) </ion-option>
+                              <ion-option value=">"> >(higher than) </ion-option>
+                              <ion-option value="="> =(equal) </ion-option>
+                              <ion-option value="INTERRUPT"> INTERRUPT </ion-option>
+                  </ion-select>
+
+              </ion-item>
+          </ion-col> -->
+          <ion-col col-12>
+              <ion-item>
+                  <ion-label  floating>Issuse Type</ion-label>
+                  <ion-select  id="issuseType" name="issuseType" #issuseType="ngModel" ngModel required>
+                      <ion-option>Condition</ion-option>
+                  </ion-select>
+              </ion-item>
+          </ion-col>
+
+          <ion-col col-12>
+              <ion-item id="textBox">
+                  <ion-label floating >Issues Description</ion-label>
+                  <ion-input type="text"   id="issuseDes" name="issuseDes" #issuseDes="ngModel" ngModel></ion-input>
+              </ion-item>
+          </ion-col>
+
+          <ion-col col-12>
+            <ion-item>
+                <ion-label  floating>Status</ion-label>
+                <ion-select  id="status" name="status" #status="ngModel" ngModel required>
+                    <ion-option>Condition</ion-option>
+                </ion-select>
+            </ion-item>
+        </ion-col>
+        
+      </ion-row>
+      <div class="bttnbar">
+          <button style="backgroundcolor:brown" ion-button block type="submit" [disabled]="!ruleaddform.valid" (click)="savefeedback(ruleaddform.value)">Save</button>
+      </div>
+  </form>
+</ion-content>

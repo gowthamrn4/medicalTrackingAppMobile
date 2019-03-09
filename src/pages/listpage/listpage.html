@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-navbar hideBackButton>
+        <ion-buttons class="backBtn" (click)="goToBack()" left>
+            <button ion-button icon-only class="backBtn">
+              <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+          </button>
+        </ion-buttons>
+       <ion-title><pre>  FeedBack List</pre></ion-title>
+    </ion-navbar>
+   </ion-header>
+
+   <ion-content padding>
+    <ion-card *ngFor="let list of feedbackList">
+        <ion-item [color]="list.readStatus==false  ? 'light':'white'">
+            <ion-label>
+                <h2></h2>
+                <ion-row>
+                    <ion-col style="color:blueviolet" aling="center"><pre>        {{list.issuseType}}</pre>
+                    </ion-col>
+                    <ion-col></ion-col>
+                    <ion-col></ion-col>  
+                    <ion-col></ion-col>  
+                    <ion-col></ion-col> 
+                    <ion-col> 
+                        <ion-icon name="trash" (click)="del(list)" style="color:brown"></ion-icon>
+                    </ion-col>
+                </ion-row>
+                <div (click)="NotificationDetails(list)">
+               <ion-label align="center">Rep Name : {{list.repName}}</ion-label>
+                <ion-note item-start>Issue Des : {{list.issuseDes}}</ion-note>
+                <ion-note item-start>Date : {{list.date | date}}</ion-note>
+
+                </div>
+                <!-- <ion-badge item-end>End Date:{{item?.endDate}}</ion-badge> -->
+            </ion-label>
+            <!--    <ion-toggle [(ngModel)]="item.isChecked" (ionChange)="activateschedule(item)"></ion-toggle>-->
+            <!-- <ion-note item-end>End Date:{{item?.endDate}}</ion-note> -->
+        </ion-item>
+    </ion-card>
+  </ion-content>
